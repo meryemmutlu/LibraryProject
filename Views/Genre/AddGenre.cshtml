@@ -1,0 +1,21 @@
+﻿@using LibraryProject.Models.Entities
+@model Genre
+@{
+    ViewData["Title"] = "AddGenre";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2>Tür Ekle</h2>
+<br />
+<form method="post">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Tür Adı</label>
+                <input type="text" name="GenreName" class="form-control" />
+            </div>
+            <br />
+            <button class="btn btn-success">Ekle</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+﻿@using LibraryProject.Models.Entities
+@model List<Member>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h3 class="pb-2">Üye Listesi</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Üye No</th>
+            <th>Kimlik No</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Cinsiyet</th>
+            <th>Telefon No</th>
+            <th>E-posta</th>
+            <th></th>
+            <th></th>
+            <th>Üyeye Ait İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MemberId</td>
+                <td>@item.IdentityNo</td>
+                <td>@item.MemberName</td>
+                <td>@item.MemberSurname</td>
+                <td>@item.Gender</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td><a href="/Member/RemoveMember/@item.MemberId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Member/UpdateMember/@item.MemberId" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/BorrowedBook/MemberBooks/@item.MemberId" class="btn btn-success">Tüm İşlemler</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Member/AddMember/" class="btn btn-primary">Yeni Üye Ekle</a>

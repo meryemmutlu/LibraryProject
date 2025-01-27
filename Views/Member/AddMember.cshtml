@@ -1,0 +1,47 @@
+﻿@using LibraryProject.Models.Entities
+@model Member
+@{
+    ViewData["Title"] = "AddMember";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2>Üye Ekle</h2>
+<br />
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Kimlik No</label>
+                <input type="text" name="IdentityNo" class="form-control" />
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Adı</label>
+                <input type="text" name="MemberName" class="form-control" />
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Soyadı</label>
+                <input type="text" name="MemberSurname" class="form-control" />
+            </div>
+            <br />
+            <div class="md-3">
+                Erkek @Html.RadioButton("Gender", "Erkek")
+                Kadın @Html.RadioButton("Gender", "Kadın")
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Telefon No</label>
+                <input type="text" name="PhoneNumber" class="form-control" />
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">E-posta</label>
+                <input type="text" name="Email" class="form-control" />
+            </div>
+            <br />
+            <button class="btn btn-success">Ekle</button>
+        </div>
+    </div>
+</form>

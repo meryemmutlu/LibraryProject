@@ -1,0 +1,35 @@
+﻿@using LibraryProject.Models.Entities
+@model List<Genre>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h3 class="pb-2">Tür Listesi</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tür No</th>
+            <th>Tür Adı</th>
+            <th></th>
+            <th></th>
+            <th>Türe Ait Kitaplar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GenreId</td>
+                <td>@item.GenreName</td>
+                <td><a href="/Genre/RemoveGenre/@item.GenreId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Genre/UpdateGenre/@item.GenreId" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/Book/GenresBooks/@item.GenreId" class="btn btn-success">Kitaplar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Genre/AddGenre/" class="btn btn-primary">Yeni Tür Ekle</a>

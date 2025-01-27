@@ -1,0 +1,41 @@
+﻿@using LibraryProject.Models.Entities
+@model List<Book>
+
+@{
+    ViewData["Title"] = "AuthorsBooks";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2 class="pb-2">@ViewBag.author Kitapları</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kitap No</th>
+            <th>Kitap Resmi</th>
+            <th>Kitap Adı</th>
+            <th>Tür</th>
+            <th>Yazar</th>
+            <th>Durum</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookId</td>
+                <td><img src="~/img/@item.BookImage" width="80" /></td>
+                <td>@item.BookTitle</td>
+                <td>@item.Genre.GenreName</td>
+                <td>@item.Author.AuthorName @item.Author.AuthorSurname</td>
+                <td>@item.BookStatus</td>
+                <td><a href="/Book/RemoveBook/@item.BookId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Book/UpdateBook/@item.BookId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

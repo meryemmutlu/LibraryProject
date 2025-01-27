@@ -1,0 +1,40 @@
+﻿@using LibraryProject.Models.Entities
+@model BorrowedBook
+@{
+    ViewData["Title"] = "ReturnBook";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2>Kitap İade</h2>
+<br />
+<form method="POST">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="md-3">
+                <input type="hidden" name="BorrowId" value="@Model.BorrowId" />
+            </div>
+
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Kitap Adı</label>
+                @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewBag.getBooks, new { @class = "form-control" })
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Üye</label>
+                @Html.DropDownListFor(x => x.MemberId, (List<SelectListItem>)ViewBag.getMembers, new { @class = "form-control" })
+                <br />
+            </div>
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Veriliş Tarihi</label>
+                @Html.TextBoxFor(x => x.BorrowDate, "{0:dd.MM.yyyy HH:mm}", new { @class = "form-control", type = "datetime" })
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">İade Tarihi</label>
+                <input type="datetime-local" name="ReturnDate" class="form-control" value="@Model.ReturnDate" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Kitabı İade Et</button>
+</form>

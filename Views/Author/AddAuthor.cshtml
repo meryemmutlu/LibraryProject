@@ -1,0 +1,27 @@
+﻿@using LibraryProject.Models.Entities
+@model Author
+
+@{
+    ViewData["Title"] = "AddAuthor";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2>Yazar Ekle</h2>
+<br />
+<form method="post">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Yazar Adı</label>
+                <input type="text" name="AuthorName" class="form-control" />
+            </div>
+            <br />
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Yazar Soyadı</label>
+                <input type="text" name="AuthorSurname" class="form-control" />
+            </div>
+            <br />
+            <button class="btn btn-success">Ekle</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+﻿@using LibraryProject.Models.Entities
+@model Genre
+
+@{
+    ViewData["Title"] = "UpdateGenre";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h2>Tür Güncelle</h2>
+<br />
+<form method="post">
+    <input type="hidden" name="GenreId" value="@Model.GenreId" />
+    <div class="row">
+        <div class="col-md-5">
+            <div class="md-3">
+                <label style="padding-bottom:3px;font-weight:600">Tür Adı</label>
+                <input type="text" name="GenreName" class="form-control" value="@Model.GenreName" />
+            </div>
+            <br />
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    </div>
+</form>

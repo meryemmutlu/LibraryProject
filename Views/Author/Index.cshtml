@@ -1,0 +1,37 @@
+﻿@using LibraryProject.Models.Entities
+@model List<Author>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+
+<h3 class="pb-2">Yazar Listesi</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Yazar No</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th></th>
+            <th></th>
+            <th>Yazara Ait Kitaplar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AuthorId</td>
+                <td>@item.AuthorName</td>
+                <td>@item.AuthorSurname</td>
+                <td><a href="/Author/RemoveAuthor/@item.AuthorId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Author/UpdateAuthor/@item.AuthorId" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/Book/AuthorsBooks/@item.AuthorId" class="btn btn-success">Kitaplar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Author/AddAuthor/" class="btn btn-primary">Yeni Yazar Ekle</a>

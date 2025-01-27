@@ -1,0 +1,47 @@
+﻿@using LibraryProject.Models.Entities
+@model List<BorrowedBook>
+@{
+    ViewData["Title"] = "PageOfBorrow";
+    Layout = "~/Views/Shared/_LibraryLayout.cshtml";
+}
+<h3 class="pb-2">Ödünç Verilenler</h3>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>İşlem Id</th>
+            <th>Kitap Adı</th>
+            <th>Üye</th>
+            <th>Veriliş Tarihi</th>
+            <th>Teslim Tarihi</th>
+            <th>İşlem Durum</th>
+            <th>İade Al</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BorrowId</td>
+                <td>@item.Book.BookTitle</td>
+                <td>@item.Member.MemberName @item.Member.MemberSurname</td>
+                <td>@item.BorrowDate.ToString("g")</td>
+                <td>----------</td>
+                @if (item.BorrowStatus)
+                {
+                    <td><font color="green">@item.BorrowStatus</font></td>
+                }
+                else
+                {
+                    <td><font color="red">@item.BorrowStatus</font></td>
+                }
+
+                <td><a href="/BorrowedBook/ReturnBook/@item.BorrowId" class="btn btn-danger">İade Et</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
